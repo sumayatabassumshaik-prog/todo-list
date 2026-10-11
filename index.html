@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow | Smart To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="app">
+        <header class="header">
+            <div>
+                <span class="eyebrow">YOUR PERSONAL WORKSPACE</span>
+                <h1>TaskFlow <span>✦</span></h1>
+                <p>Small steps. Big progress.</p>
+            </div>
+            <div class="date-card">
+                <span>Today</span>
+                <strong id="todayDate"></strong>
+            </div>
+        </header>
+
+        <section class="progress-card">
+            <div class="progress-heading">
+                <div>
+                    <h2>Your progress</h2>
+                    <p id="progressMessage">Let's get things done!</p>
+                </div>
+                <strong id="progressPercent">0%</strong>
+            </div>
+            <div
+                class="progress-track"
+                role="progressbar"
+                aria-label="Task completion"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+                id="progressTrack"
+            >
+                <div id="progressBar" class="progress-bar"></div>
+            </div>
+            <div class="stats">
+                <div><strong id="totalCount">0</strong><span>Total tasks</span></div>
+                <div><strong id="activeCount">0</strong><span>Remaining</span></div>
+                <div><strong id="completedCount">0</strong><span>Completed</span></div>
+            </div>
+        </section>
+
+        <section class="task-panel">
+            <h2 id="formTitle">Add a new task</h2>
+
+            <form id="taskForm">
+                <label for="taskInput">Task name</label>
+                <input
+                    id="taskInput"
+                    type="text"
+                    maxlength="200"
+                    placeholder="What do you need to do?"
+                    required
+                >
+
+                <div class="form-grid">
+                    <div>
+                        <label for="taskDate">Due date (optional)</label>
+                        <input id="taskDate" type="date">
+                    </div>
+                    <div>
+                        <label for="taskPriority">Priority</label>
+                        <select id="taskPriority">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button id="saveBtn" class="primary-btn" type="submit">
+                        + Add Task
+                    </button>
+                    <button id="cancelEditBtn" class="secondary-btn hidden" type="button">
+                        Cancel edit
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <section class="list-section">
+            <div class="list-heading">
+                <div>
+                    <h2>My tasks</h2>
+                    <p>Organize your day your way.</p>
+                </div>
+                <button id="clearBtn" class="text-btn" type="button">
+                    Clear all
+                </button>
+            </div>
+
+            <nav class="filters" aria-label="Filter tasks">
+                <button type="button" class="filter-btn active" data-filter="all">
+                    All <span id="allFilterCount">0</span>
+                </button>
+                <button type="button" class="filter-btn" data-filter="active">
+                    Active <span id="activeFilterCount">0</span>
+                </button>
+                <button type="button" class="filter-btn" data-filter="completed">
+                    Completed <span id="completedFilterCount">0</span>
+                </button>
+            </nav>
+
+            <ul id="taskList" class="task-list"></ul>
+
+            <div id="emptyState" class="empty-state">
+                <div class="empty-icon">✦</div>
+                <h3>No tasks here yet</h3>
+                <p>Add a task above and start making progress.</p>
+            </div>
+        </section>
+
+        <footer>
+            <span>Made for your next big thing ✨</span>
+            <span>Saved automatically on this browser</span>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
